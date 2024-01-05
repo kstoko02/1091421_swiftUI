@@ -109,3 +109,55 @@ struct ContentView: View {
         }
     }
 }
+
+struct CardView: View {
+    var img:String
+    var Option:String
+    var Name:String
+    
+    var body: some View{
+        VStack{
+            Image(img)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            VStack(alignment: .leading, content: {
+                Text(Option)
+                    .font(.headline)
+                    .foregroundStyle(.secondary)
+                Text(Name)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundStyle(.primary)
+            })    
+            .frame(minWidth:0,idealWidth: 100,maxHeight: .infinity,alignment: .center)
+            .padding(.leading,15)
+            .padding(.bottom,10)
+        }
+        .background(Color(red:255/255,green: 200/255,blue:200/255))
+        .clipShape(.rect(cornerRadius: 20))
+        .overlay( 
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray,lineWidth: 2)
+        )
+        .padding(.all,10)
+    }
+}
+
+struct WelcomeView: View{
+    var body: some View{
+        VStack{
+            Image("Olive Young")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Text("排行榜")
+                .fontWeight(.heavy)
+                .lineSpacing(20)
+                .font(.system(size:32.0))
+                .foregroundColor(.white)
+                .frame(width: 600,height: 50,alignment:
+                        .center)
+                .background(Color.red)
+                .multilineTextAlignment(.center)
+        }
+    }
+}
